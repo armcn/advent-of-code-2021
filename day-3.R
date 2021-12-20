@@ -31,11 +31,7 @@ most_common_bit <- \(bits) {
   zero_count <-
     str_count(transposed, "0")
 
-  case_when(
-    one_count > zero_count ~ 1L,
-    one_count < zero_count ~ 0L,
-    TRUE ~ 1L
-  )
+  if_else(one_count < zero_count, 1L, 0L)
 }
 
 least_common_bit <- \(bits) {
